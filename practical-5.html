@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical-5</title>
+    <style>
+        .img{
+            margin: 10px auto 30px auto;
+            display: block;
+        }
+        .h2{
+            font-family: tahoma;
+            color: white;
+        }
+        .strong{
+            color: red;
+            font-family: tahoma;
+            text-align: center;
+        }
+        img[usemap],map area{
+            outline: none;
+        }
+    </style>
+</head>
+<body bgcolor="#d3d3d3">
+    <img class="img" src="../Full_Stack_practicals/images/nav.png" usemap="#workmap1" >
+    <map name="workmap1">
+        <area shape="rect" coords="12,10,125,90" href="../index.html" alt="">
+        <area shape="rect" coords="136,10,342,90" href="practical-1.html" alt="">
+        <area shape="rect" coords="352,10,557,90" href="practical-2.html" alt="">
+        <area shape="rect" coords="566,10,771,90" href="practical-3.html" alt="">
+        <area shape="rect" coords="779,10,971,90" href="practical-4.html" alt="">
+        <area shape="rect" coords="979,10,1184,90" href="#" alt="">
+    </map>
+
+    <center><h2 class="h2">Welcome to Front-End Technologies</h2></center>
+    <img class="img"src="../Full_Stack_practicals/images/imagemap.jpg" usemap="workmap">
+    <map name="workmap">
+        <area shape="rect" coords="19,9,172,166" href="practical-5Html.html" alt="">
+        <area shape="circle" coords="290,92,95" href="practical-5CSS.html" alt="">
+        <area shape="rect" coords="24,195,170,338" href="practical-5JS.html" alt="">
+        <area shape="poly" coords="290,201,348,222,338,300,289,329,240,301,231,222" href="practical-5Bootstrap.html" alt="">
+    </map>
+    <p class="strong">Click on any part of the logo to know more about these Technologies.</p>
+</body>
+</html>
