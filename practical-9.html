@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Practical-9</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			padding: 0px;
+			margin: 0px; 
+			font-family: tahoma;
+			scroll-behavior: smooth;
+		}
+		.header{
+			width: 100%;
+			height: 70px;
+			background-color: grey;
+			padding: 0px 20px; 
+			margin-bottom: 10px;
+			position: sticky;
+			top: 0px;
+		}
+		.header .ul1{
+			list-style: none;
+			float: right;
+		}
+		.ul1 li{
+			display: inline-block;
+			line-height: 70px;
+		}
+		.ul1 li a{
+			text-decoration: none;
+			color: white;
+			font-size: 20px;
+			text-transform: uppercase;
+			padding: 0px 20px;
+		}
+		.showbtn, .hidebtn{
+			font-size: 30px;
+			color: white;
+			line-height: 70px;
+			display: none;
+		}
+		.ul1 li a:hover, .showbtn:hover, .hidebtn:hover{
+			color: skyblue;
+			transition: 0.3s;
+		}
+		.showbtn{
+			float: right;
+		}
+		#chk{
+			position: absolute;
+			visibility: hidden;
+			z-index: -10;
+		}
+		.home{
+			background-image: url("../Full_Stack_practicals/images/computer.jpg");
+			background-repeat: no-repeat;
+			background-size: 100% 100vh;
+			height: 100vh;
+			margin: 0px 15px 15px 15px;
+		}
+		.home .h1{
+			padding: 15px 10px 10px 10px; 
+			font-size: 4rem;
+		}
+		.team{
+			width: 100%;
+			margin: 15px 0px;
+		}
+		.h11{
+			margin: 20px 0px;
+		}
+		.img{
+			margin-top: 35px; 
+			width: 90%;
+			display: flex;
+			flex-direction: row;
+			margin-left: auto;
+			margin-right: auto;
+
+		}
+		.img2{
+			width: 50%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around; 
+		}
+		.img3{
+			width: 50%;
+			display: flex;
+			flex-direction: row; 
+			justify-content: space-around;
+		}
+		.img12{
+			height: 100%;
+			width: 40%;
+			border-radius: 50%;
+		}
+		.team::after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.content{
+			display: flex;
+			flex-direction: row;
+			margin: 0px 20px;
+		}
+		.overview{
+			width: 48%;
+			background-color: pink;
+			border-radius: 5px;
+			margin-right: 30px;
+		}
+		.project{
+			width: 50%;
+			display:flex;
+			flex-direction: column;
+		}
+		.project .p1{
+			width: 100%;
+			height: 200px;
+			background-image: url("../Full_Stack_practicals/images/p1.jpg");
+			background-size: 100% 200px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+
+		}
+		.project .p2{
+			width: 100%;
+			height: 200px;
+			background-image: url("../Full_Stack_practicals/images/p2.jpeg");
+			background-size: 100% 200px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+		}
+		.project .p3{
+			width: 100%;
+			height: 200px;
+			background-image: url("../Full_Stack_practicals/images/p3.jpg");
+			background-size: 100% 200px;
+			border-radius: 5px;
+		}
+		.technology{
+			width: 100%;
+			margin-bottom: 30px;
+		}
+		.tech{
+			display: flex;
+			flex-direction: row;
+			margin : 0px 20px;
+		}
+		.tech1{
+			display: flex;
+			flex-direction: row;
+			width: 50%;
+			justify-content: space-around;
+		}
+		.tech2{
+			display: flex;
+			flex-direction: row;
+			width: 50%;
+			justify-content: space-around;
+		}
+		.div1{
+			width: 50%;
+			border-radius: 10px;
+			margin: 20px; 
+			padding: 15px; 
+			background-color: gray; 
+		}
+		.img1{
+			display: block;
+			width: 100%;
+			border-radius: 10px;
+			height: 150px; 
+		}
+		.h4{
+			text-align: center;
+			padding: 15px 0px;
+		}
+		.p{
+			padding-left: 8px;
+			padding-right: 8px;
+			font-size: 15px;
+		}
+		.a{
+			display: block;
+			text-decoration: none;
+			text-align: center;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-radius: 10px;
+			background-color: red;
+			color: white;
+			margin-top: 15px; 
+		}
+		.a:hover{
+			background-color: blue; 
+		}
+		.contact{
+			margin-bottom: 50px;
+		}
+		.div2{
+			background-image: linear-gradient(to bottom right, gray, black);
+			margin: 20px 15px;
+			color: white;
+			padding: 50px 0px 60px 0px;
+			max-width: 700px;
+			border-radius: 10px;
+		}
+		.footer{
+			bottom: 0;
+			background-image: linear-gradient(to bottom right, skyblue, #00ff00);
+			padding: 20px 0px 30px 0px; 
+		}
+		.a1{
+			text-decoration: none;
+			color: black;
+			padding-bottom: 10px;
+		}
+		.a1:hover{
+			color: white;
+			transition: 0.3s;
+		}
+		@media(max-width: 1000px){
+			.home{
+				background-size: 100% 80vh;
+				height: 80vh;
+			}
+			.home .h1{
+				font-size: 3rem;
+			}
+			.img,.tech{
+				flex-direction: column;
+			}
+			.img2,.img3{
+				width: 100%;
+			}
+			.tech1,.tech2{
+				width: 90%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.img3{
+				margin-top: 20px;
+			}
+		}
+		@media(max-width: 800px){
+			.showbtn, .hidebtn{
+				display: block;
+			}
+			.ul1{
+				position: fixed;
+				top: 0px;
+				right: -100%;
+				width: 100%;
+				height: 100vh;
+				background-color: #333;
+				text-align: center;
+				padding: 80px 0px;
+				transition: 0.7s;
+				line-height: normal;
+			}
+			#chk:checked ~ .ul1{
+				right: 0;
+			}
+			.ul1 li{
+				display: block;
+			}
+			.ul1 li a{
+				display: block;
+			}
+			.hidebtn{
+				position: absolute;
+				top: 20px;
+				right: 40px;
+			}
+			.home{
+				background-size: 100% 70vh;
+				height: 70vh;
+			}
+			.home .h1{
+				font-size: 3rem;
+			}
+			.content{
+				flex-direction: column;
+				width: 90%;
+				margin: 0px auto;
+			}
+			.overview,.project{
+				width: 100%;
+			}
+			.overview{
+				height: 400px;
+				overflow: hidden;
+				margin-bottom: 30px;
+			}
+		}
+		@media (max-width: 500px){
+			.home{
+				background-size: 100% 50vh;
+				height: 50vh;
+			}
+			.home .h1{
+				font-size: 2rem;
+			}
+			.img2,.img3,.tech1,.tech2{
+				flex-direction: column;
+			}
+			.img3{
+				margin-top: 0px;
+			}
+			.img12, .div1{
+				width: 90%;
+				margin: 0px auto 15px auto;
+			}
+			.h11{
+				font-size: 2rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<a name="top"></a>
+		<div class="header">
+			<input type="checkbox" id="chk">
+			<label for="chk" class="showbtn">
+				<i class="fa fa-bars"></i>
+			</label>
+			<ul class="ul1">
+				<li><a href="#home">HOME</a></li>
+				<li><a href="#about">ABOUT US</a></li>
+				<li><a href="#team">TEAM</a></li>
+				<li><a href="#technology">TECHNOLOGIES</a></li>
+				<li><a href="#contact">CONTACT US</a></li>
+				<label for="chk" class="hidebtn">
+					<i class="fa fa-times"></i>
+				</label>
+			</ul>
+		</div>
+		<a name="home"></a>
+		<div class="home">
+			<h1 class="h1">PRACTICAL-8/9</h1>
+			
+		</div>
+		<a name="team"></a>
+			<center><h1 class="h11" style="padding: 15px 0px; margin-top: 100px;">Our Team</h1></center>
+			<div class="img">
+				<div class="img2">
+				<img src="../Full_Stack_practicals/images/1.png" class="img12">
+				<img src="../Full_Stack_practicals/images/2.png" class="img12">
+			</div>
+			<div class="img3">
+				<img src="../Full_Stack_practicals/images/3.png" class="img12">
+				<img src="../Full_Stack_practicals/images/4.png" class="img12">
+			</div>
+		</div>
+		
+		<a name="about" style="padding-top: 15px;"></a>
+			<center><h1 class="h11" style="padding: 30px 0px; margin-top: 80px;">Our Projects</h1></center>
+			<div class="content">
+				<div class="overview">
+					<h2 style="padding: 10px;">About Projects</h2>
+					<p align="justify" style="padding: 0px 15px 15px 15px; height: 593px; overflow: hidden; word-spacing: 8px;">The great advantage of early rising is the good start it gives us in our day's work. The early riser has done a large amount of hard work before other men have got out of bed. In the early morning the mind is fresh, and there are few sounds or other distractions, so that work done at that time is generally well done.In many cases the early riser also finds time to take some exercise in the fresh morning air, and this exercise supplies him a fund of energy that will lost until the evening. By beginning so early, he knows that he has plenty of time to do thoroughly all the work he can be expected to do, and is not tempted to hurry over any part of it. All his work being finished in good time, he has a long interval of rest in the evening before the timely hour when he goes to bed. He gets to sleep several hours before midnight, at the time when sleep is most refreshing and after a sound night's rest, rises early next morning in good health and spirits for the labours of a new day.It is very plain that such a life as this is far more conducive to health than that of the man who shortenes his waking hours by rising late, and so can afford in the course of the day little leisure for necessary rest. Any one who lies in bed late, must, if he wishes to do a full day's work, go on working to a correspondingly late hour, and deny himself the hour or two of evening exercise that he ought to take for the benefit of his health. But in spite of all his efforts, he will probably produce as good results as the early riser, because he misses the best working hours of the day.The India is a country which is in British rule for long time.. We got the independence at 15 th August on 1947. so, we celebrate 15 th August every year as our Independence Day. We have been observing this day as a national great day. This day reminds us the sacrifice of the great freedom fighters. We got freedom from our united strength .We celebrate this day all over our country .</p>
+				</div>
+				<div class="project">
+					<div class="p1">
+						<center><h3 style="padding: 10px;">Project-1</h3></center>
+					</div>
+					<div class="p2">
+						<center><h3 style="padding: 10px;">Project-2</h3></center>
+					</div>
+					<div class="p3">
+						<center><h3 style="padding: 10px;">Project-3</h3></center>
+					</div>
+				</div>
+			</div>
+		<a name="technology"></a>
+			<center><h1 class="h11" style="padding: 20px 0px; margin-top: 100px;">Technologies Used</h1></center>
+			<div class="tech">
+			<div class="tech1">
+			<div class="div1">
+				<img src="../Full_Stack_practicals/images/html1.png" class="img1">
+				<h4 class="h4">Intorduction to HTML</h4>
+				<p align="justify" class="p">Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages etc.</p>
+				<a href="practical-5Html.html" class="a">Read More</a>
+			</div>
+			<div class="div1">
+				<img src="../Full_Stack_practicals/images/css1.png" class="img1">
+				<h4 class="h4">Intorduction to CSS</h4>
+				<p align="justify" class="p">Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS is a cornerstone technology of the World Wide Web etc.</p>
+				<a href="practical-5CSS.html" class="a">Read More</a>
+			</div>
+		</div>
+		<div class="tech2">
+			<div class="div1">
+				<img src="../Full_Stack_practicals/images/jquery1.jpg" class="img1">
+				<h4 class="h4">Intorduction to JQuery</h4>
+				<p align="justify" class="p">Does jQuery have a place in 2020? It has of course, largely fallen out of favor in recent years. However, don’t let that discourage you from taking some time to learn about it. We’ll be taking a brief look at the state of jQuery in this article.</p>
+				<a href="practical-5JS.html" class="a">Read More</a>
+			</div>
+			<div class="div1">
+				<img src="../Full_Stack_practicals/images/bootstrap1.png" class="img1">
+				<h4 class="h4">Intorduction to Bootstrap</h4>
+				<p align="justify" class="p">Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and JavaScript-based design templates for typography, forms, and other interface components.</p>
+				<a href="practical-5Bootstrap.html" class="a">Read More</a>
+			</div>
+		</div>
+	</div>
+		<a name="contact"></a>
+			<center><h1 class="h11" style="padding: 20px 0px; margin-top: 80px;">Contact Us</h1></center>
+			<center><div class="div2">
+				<h3 style="font-weight: normal; padding-bottom: 40px;">Contact us at following details:</h3>
+				<p align="justify" style="text-align: center;">email: xyz@example.com<br>
+					Phone: xxxxxxxxxx<br>
+					FAX No. : xxxxxx<br>
+				</p>
+			</div></center>
+	<div class="footer" style="margin-top: 50px;">
+		<p align="justify" style="text-align: center; padding-bottom: 20px;">Website Layout &copy; Yash Vardhan</p>
+		<center><a href="#top" class="a1">Click Here to move to Top</a></center>
+	</div>
+</body>
+</html>
