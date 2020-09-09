@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+			box-sizing: border-box;
+			font-family: Arial;
+		}
+		.div1{
+			background-color: white;
+			margin: 30px auto 20px auto;
+			max-width: 618px;
+			padding-bottom: 1px;
+		}
+		.heading{
+			margin: 10px;
+			padding: 10px 0px 0px 0px;
+			text-align: center;
+		}
+		table{
+			border-collapse: collapse;
+			margin: 10px; 
+		}
+		td{
+			border-right: 2px solid white;
+			border-left: 2px solid white; 
+			padding: 8px 0px;
+			text-align: center;
+			font-size: 0.9em;
+		}
+		th{
+			border-right: 2px solid white;
+			border-left: 2px solid white; 
+			padding: 20px 15px;
+			font-size: 1.6em;
+			color: rgb(72,61,139);
+		}
+		tr:nth-child(even){
+			background-color: rgba(240,255,140,0.5);
+		}
+		tr:nth-child(odd) td:nth-child(1), th:nth-child(1){
+			background-color: rgba(173,255,47,0.4);
+		}
+		tr:nth-child(odd) td:nth-child(2), th:nth-child(2){
+			background-color: rgba(50,205,50,0.3);
+		}
+		tr:nth-child(odd) td:nth-child(3), th:nth-child(3){
+			background-color: rgba(34,139,34,0.3);
+		}
+		tr:nth-child(odd) td:nth-child(4), th:nth-child(4){
+			background-color: rgba(75,0,130,0.2);
+		}
+		i{
+			margin-right: 5px;
+		}
+		tr:nth-child(2){
+			color: green;
+		}
+		.true{
+			color: green;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+		.false{
+			color: red;
+			font-size: 1.3em;
+			font-weight: bold;
+		}
+		.button{
+			background-color: rgb(72,61,139); 
+			border-radius: 7px;
+			margin: 10px 20px;
+		}
+		.a1{
+			text-decoration: none;
+			color: white;
+			display: inline-block;
+			font-size: 1.3em;
+			width: 100%;
+			padding: 10px 20px;
+		}
+	</style>
+</head>
+<body bgcolor="lightgrey">
+<div class="div1">
+<table>
+	<h3 class="heading">SELECT YOUR PLAN</h3>
+	<tr>
+		<th><i class="fa fa-building" aria-hidden="true"></i>Basic</th>
+		<th><i class="fa fa-superpowers" aria-hidden="true"></i>Plus</th>
+		<th><i class="fa fa-telegram" aria-hidden="true"></i>Deluxe</th>
+		<th><i class="fa fa-tachometer" aria-hidden="true"></i>Pro</th>
+	</tr>
+	<tr>
+		<td style="font-size: 1.2em;">Rs. 500/-</td>
+		<td style="font-size: 1.2em;">Rs. 1500/-</td>
+		<td style="font-size: 1.2em;">Rs. 2500/-</td>
+		<td style="font-size: 1.2em;">Rs. 3500/-</td>
+	</tr>
+	<tr>
+		<td>50 Pages</td>
+		<td>75 Pages</td>
+		<td>Unlimited</td>
+		<td>Unlimited</td>
+	</tr>
+	<tr>
+		<td>3 Users</td>
+		<td>5 Users</td>
+		<td>10 Users</td>
+		<td>Unlimited</td>
+	</tr>
+	<tr>
+		<td>10 Sites</td>
+		<td>25 Sites</td>
+		<td>100 Sites</td>
+		<td>Unlimited</td>
+	</tr>
+	<tr>
+		<td>50 MB</td>
+		<td>250 MB</td>
+		<td>1 GB</td>
+		<td>5 GB</td>
+	</tr>
+	<tr>
+		<td>Included</td>
+		<td>Included</td>
+		<td>Included</td>
+		<td>Included</td>
+	</tr>
+	<tr>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+	</tr>
+	<tr>
+		<td><i class="fa fa-times false" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+	</tr>
+	<tr>
+		<td><i class="fa fa-times false" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+	</tr>
+	<tr>
+		<td><i class="fa fa-times false" aria-hidden="true"></i></td>
+		<td><i class="fa fa-times false" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+	</tr>
+	<tr>
+		<td><i class="fa fa-times false" aria-hidden="true"></i></td>
+		<td><i class="fa fa-times false" aria-hidden="true"></i></td>
+		<td><i class="fa fa-times false" aria-hidden="true"></i></td>
+		<td><i class="fa fa-check true" aria-hidden="true"></i></td>
+	</tr>
+	<tr>
+		<td>
+			<div class="button">
+				<a href="#" class="a1">Sign Up</a>
+			</div>
+		</td>
+		<td>
+			<div class="button">
+				<a href="#" class="a1">Sign Up</a>
+			</div>
+		</td>
+		<td>
+			<div class="button">
+				<a href="#" class="a1">Sign Up</a>
+			</div>
+		</td>
+		<td>
+			<div class="button">
+				<a href="#" class="a1">Sign Up</a>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+</body>
+</html>
