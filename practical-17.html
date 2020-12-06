@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>live clock</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+			font-family: calibri;
+		}
+		.main{
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.main p:first-child{
+			font-size: 8em;
+		}
+		.main strong{
+			display: inline-block;
+			margin-top: 20px;
+			font-size: 2em;
+		}
+		.main input{
+			display: block;
+			margin-top: 20px;
+			font-size: 2.5em;
+			text-align: center;
+			border: none;
+			outline: none;
+			background: transparent;
+		}
+		.main p:last-child{
+			font-size: 1.5em;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body onload="get();">
+	<div class="main">
+		<p id="time"></p>
+		<strong id="welcome_text"></strong>
+		<input type="text" name="name1" id="name1" placeholder="Any Doubts ...?">
+		<p id="last"></p>
+	</div>
+	<script>
+		function start(){
+			var time = document.getElementById("time");
+			var welcome_text = document.getElementById("welcome_text");
+			var name1 = document.getElementById("name1");
+			var last = document.getElementById("last");
+			var clock = new Date();
+			var day = clock.getDay();
+			var month = clock.getMonth();
+			var date = clock.getDate();
+			var year = clock.getFullYear();
+			var hours = clock.getHours();
+			var minutes = clock.getMinutes();
+			var second = clock.getSeconds();
+
+			if (hours >5 && hours<=12) {
+				document.body.style.backgroundImage = "url('../images/morning.jpg')";
+				document.body.style.backgroundSize = "100% 100vh";
+				welcome_text.innerHTML = "GOOD MORNING";
+			}
+			else if (hours>12 && hours<=18){
+				document.body.style.backgroundImage = "url('../images/afternoon.jpg')";
+				document.body.style.backgroundSize = "100% 100vh";
+				welcome_text.innerHTML = "GOOD AFTERNOON";
+				name1.style.color = "lightgrey";
+			}
+			else{
+				document.body.style.backgroundImage = "url('../images/night.jpeg')";
+				document.body.style.backgroundSize = "100% 100vh";
+				welcome_text.innerHTML = "GOOD NIGHT";
+				time.style.color = "white";
+				welcome_text.style.color = "white";
+				name1.style.color = "lightgrey";
+				last.style.color = "white";
+			}
+			var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+			var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
+			var back = "";
+			if (hours > 12) {
+				back = "PM";
+			}
+			else{
+				back = "AM";
+			}
+
+			hours = hours % 12;
+			hours = check(hours);
+			minutes = check(minutes);
+			second = check(second);
+
+			time.innerHTML = hours+"<span>:</span>"+minutes+"<span>:</span>"+second+" "+back;
+			last.innerHTML = days[day]+" "+months[month]+" "+date+" "+year;
+			setTimeout(start,1000);
+		}
+		
+		function check(i){
+			if (i< 10) {
+				i= "0"+i;
+			}
+			return i;
+		}
+
+		var stored = localStorage.getItem("stored");
+		var name1 = document.getElementById("name1");
+		name1.addEventListener("keypress",function(e){
+			if (e.keyCode === 13) {
+				var x = name1.value;
+				localStorage.setItem("stored",x);
+				window.location.reload();
+			}
+		});
+
+		function get(){
+			var l = localStorage.getItem("stored");
+			console.log(localStorage.getItem("stored"));
+			document.getElementById("name1").value = stored;
+
+			start();
+
+		}
+
+	</script>
+</body>
+</html>

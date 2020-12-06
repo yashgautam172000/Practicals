@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+			font-family: calibri;
+		}
+		body{
+			background-color: #151e3d;
+		}
+		.form_container{
+			margin: 20px auto;
+			background-color: white;
+			max-width: 500px;
+			border-radius: 5px;
+		}
+		.head{
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			background-color: #dcdcdc;
+			display: flex;
+			justify-content: center;
+			padding: 20px 0px;
+		}
+		form{
+			padding: 30px 30px 20px 30px;
+		}
+		form .entry1{
+			position: relative;
+		}
+		form .entry2,form .entry3,form .entry4{
+			position: relative;
+			margin-top: 15px;
+		}
+		form .entry1 label,form .entry2 label,form .entry3 label,form .entry4 label{
+			display: block;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+		form .entry1 input,form .entry2 input,form .entry3 input,form .entry4 input{
+			display: block;
+			width: 100%;
+			font-size: 1.1em;
+			margin-top: 5px;
+			padding: 7px;
+			border: 2px solid lightgrey;
+			border-radius: 5px;
+			outline: none;
+			transition: all 0.3s;
+		}
+		form .entry1 .fa-check-circle,form .entry2 .fa-check-circle,form .entry3 .fa-check-circle,form .entry4 .fa-check-circle{
+			position: absolute;
+			right: 10px;
+			top: 40px;
+			color: green;
+			visibility: hidden;
+		}
+		form .entry1 .fa-exclamation-circle,form .entry2 .fa-exclamation-circle,form .entry3 .fa-exclamation-circle,form .entry4 .fa-exclamation-circle{
+			position: absolute;
+			right: 10px;
+			top: 40px;
+			color: red;
+			visibility: hidden;
+		}
+		form .entry1 input:focus,form .entry2 input:focus,form .entry3 input:focus,form .entry4 input:focus{
+			border: 2px solid darkgrey;
+		}
+		form .entry1 .validate1,form .entry2 .validate2,form .entry3 .validate3,form .entry4 .validate4{
+			margin-top: 1px;
+			font-size: 16px;
+			visibility: hidden;
+		}
+		form button{
+			margin-top: 15px;
+			width: 100%;
+			padding: 10px 0px;
+			font-size: 1.2em;
+			background-color: #151e3d;
+			border: none;
+			outline: none;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+		form button:hover{
+			background-color: #372b52;
+		}
+	</style>
+</head>
+<body>
+<div class="form_container">
+	<div class="head">
+		<h1>Create Account</h1>
+	</div>
+	<div class="main">
+		<form>
+			<div class="entry1">
+				<label for="username">Username</label>
+				<input type="text" class="username" id="username" placeholder="Enter Username">
+				<i class="fa fa-check-circle" aria-hidden="true" id="tick1"></i>
+				<i class="fa fa-exclamation-circle" aria-hidden="true" id="not1"></i>
+				<p id="validate1" class="validate1">trial</p>
+			</div>
+			<div class="entry2">
+				<label for="email">Email</label>
+				<input type="text" class="email" id="email" placeholder="Enter Email">
+				<i class="fa fa-check-circle" aria-hidden="true" id="tick2"></i>
+				<i class="fa fa-exclamation-circle" aria-hidden="true" id="not2"></i>
+				<p id="validate2" class="validate2">trial</p>
+			</div>
+			<div class="entry3">
+				<label for="password1">Password</label>
+				<input type="password" class="password2" id="password1" placeholder="Enter Password">
+				<i class="fa fa-check-circle" aria-hidden="true" id="tick3"></i>
+				<i class="fa fa-exclamation-circle" aria-hidden="true" id="not3"></i>
+				<p id="validate3" class="validate3">trial</p>
+			</div>
+			<div class="entry4">
+				<label for="password2">Confirm Password</label>
+				<input type="password" class="password2" id="password2" placeholder="Enter Password Again">
+				<i class="fa fa-check-circle" aria-hidden="true" id="tick4"></i>
+				<i class="fa fa-exclamation-circle" aria-hidden="true" id="not4"></i>
+				<p id="validate4" class="validate4">trial</p>
+			</div>
+			<button type="button" onclick="validate();">Submit</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	function validate(){
+		var username = document.getElementById("username");
+		var email = document.getElementById("email");
+		var password1 = document.getElementById("password1");
+		var password2 = document.getElementById("password2");
+		var p1 = document.getElementById("validate1");
+		var p2 = document.getElementById("validate2");
+		var p3 = document.getElementById("validate3");
+		var p4 = document.getElementById("validate4");
+
+		if (username.value == null || username.value === "") {
+			username.style.borderColor = "red";
+			document.getElementById("not1").style.visibility = "visible";
+			p1.innerHTML = "Username can'not be Empty";
+			p1.style.visibility = "visible";
+			p1.style.color = "red";
+		}
+		if (email.value == null || email.value === "") {
+			email.style.borderColor = "red";
+			document.getElementById("not2").style.visibility = "visible";
+			p2.innerHTML = "Email can'not be Empty";
+			p2.style.visibility = "visible";
+			p2.style.color = "red";
+		}
+		if (password1.value == null || password1.value === "") {
+			password1.style.borderColor = "red";
+			document.getElementById("not3").style.visibility = "visible";
+			p3.innerHTML = "Password can'not be Empty";
+			p3.style.visibility = "visible";
+			p3.style.color = "red";
+		}
+		if (password2.value == null || password2.value === "") {
+			password2.style.borderColor = "red";
+			document.getElementById("not4").style.visibility = "visible";
+			p4.innerHTML = "Confirm Password can'not be Empty";
+			p4.style.visibility = "visible";
+			p4.style.color = "red";
+		}
+		var pattern1 = /^[a-z]+$/;
+		if (username.value!="" && pattern1.test(username.value)) {
+			username.style.borderColor = "green";
+			document.getElementById("tick1").style.visibility = "visible";
+		}
+		else{
+			username.style.borderColor = "red";
+			document.getElementById("not1").style.visibility = "visible";
+			p1.innerHTML = "Username is not in correct Format";
+			p1.style.visibility = "visible";
+			p1.style.color = "red";
+		}
+		var pattern2 = /^[A-Za-z0-9._]+@[A-Za-z0-9]+[.]{1}[A-Za-z.]{2,10}$/;
+		if (email.value!="" && pattern2.test(email.value)) {
+			email.style.borderColor = "green";
+			document.getElementById("tick2").style.visibility = "visible";
+		}
+		else{
+			email.style.borderColor = "red";
+			document.getElementById("not2").style.visibility = "visible";
+			p2.innerHTML = "Email is not in correct Format";
+			p2.style.visibility = "visible";
+			p2.style.color = "red";
+		}
+
+		if ((password1.value!="" && password2.value!="")&&(password1.value === password2.value)) {
+			password1.style.borderColor = "green";
+			password2.style.borderColor = "green";
+			document.getElementById("tick3").style.visibility = "visible";
+			document.getElementById("tick4").style.visibility = "visible";
+		}
+		if (password1.value != password2.value){
+			password1.style.borderColor = "red";
+			password2.style.borderColor = "red";
+			document.getElementById("not3").style.visibility = "visible";
+			document.getElementById("not4").style.visibility = "visible";
+			p4.innerHTML = "Password Does not Match";
+			p4.style.visibility = "visible";
+			p4.style.color = "red";
+		}
+	}
+</script>
+</body>
+</html>
